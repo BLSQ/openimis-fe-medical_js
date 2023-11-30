@@ -16,6 +16,7 @@ import MedicalItemsPage from "./pages/MedicalItemsPage";
 import MedicalItemPage from "./pages/MedicalItemPage";
 import MedicalItemOverviewPage from "./pages/MedicalItemOverviewPage";
 import ItemTypePicker from "./pickers/ItemTypePicker";
+import ServiceSpimmCategoryPicker from "./pickers/ServiceSpimmCategoryPicker";
 
 const ROUTE_ADMIN_MEDICAL_SERVICES = "medical/medicalServices";
 const ROUTE_ADMIN_MEDICAL_SERVICES_OVERVIEW = "medical/medicalServices/overview";
@@ -53,6 +54,8 @@ const DEFAULT_CONFIG = {
     { key: "medical.CareTypePicker.projection", ref: null },
     { key: "medical.ServiceCategoryPicker", ref: ServiceCategoryPicker },
     { key: "medical.ServiceCategoryPicker.projection", ref: null },
+    { key: "medical.ServiceSpimmCategoryPicker", ref: ServiceSpimmCategoryPicker },
+    { key: "medical.ServiceSpimmCategoryPicker.projection", ref: null },
     { key: "medical.ServiceLevelPicker", ref: ServiceLevelPicker },
     { key: "medical.ServiceLevelPicker.projection", ref: null },
     { key: "medical.ServiceTypePicker", ref: ServiceTypePicker },

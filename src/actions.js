@@ -1,4 +1,12 @@
-import { formatGQLString, formatMutation, formatPageQuery, formatPageQueryWithCount, graphql, graphqlWithVariables } from "@openimis/fe-core";
+import {
+  formatGQLString,
+  formatMutation,
+  formatPageQuery,
+  formatPageQueryWithCount,
+  graphql,
+  graphqlWithVariables,
+  formatJsonField
+} from "@openimis/fe-core";
 import _ from "lodash";
 
 const MEDICAL_SERVICES_SUMMARY_PROJECTION = [
@@ -10,6 +18,7 @@ const MEDICAL_SERVICES_SUMMARY_PROJECTION = [
   "validityFrom",
   "validityTo",
   "level",
+  "jsonExt",
 ];
 const MEDICAL_ITEMS_SUMMARY_PROJECTION = [
   "uuid",
@@ -37,6 +46,7 @@ const MEDICAL_SERVICE_FULL_PROJECTION = (mm) => [
   "validityTo",
   "level",
   "category",
+  "jsonExt",
 ];
 
 const MEDICAL_ITEM_FULL_PROJECTION = (mm) => [
@@ -69,6 +79,7 @@ export function formatMedicalItemOrServiceGQL(mm, ms) {
     ${ms.category && ms.category !== " " ? `category: "${formatGQLString(ms.category)}"` : ""}
     ${ms.level ? `level: "${formatGQLString(ms.level)}"` : ""}
     ${ms.package ? `package: "${formatGQLString(ms.package)}"` : ""}
+    ${ms.jsonExt ? `jsonExt: ${formatJsonField(ms.jsonExt)}` : ""}
   `;
   return req;
 }

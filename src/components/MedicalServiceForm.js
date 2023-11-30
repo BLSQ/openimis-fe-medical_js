@@ -26,7 +26,12 @@ import {
   newMedicalService,
   clearServiceForm,
 } from "../actions";
-import { RIGHT_MEDICALSERVICES, SERVICE_CODE_MAX_LENGTH } from "../constants";
+import {
+  CARE_TYPE_OUTPATIENT,
+  RIGHT_MEDICALSERVICES,
+  SERVICE_CODE_MAX_LENGTH,
+  SERVICE_LEVEL_HOSPITAL_CARE
+} from "../constants";
 import MedicalServiceMasterPanel from "./MedicalServiceMasterPanel";
 
 const styles = (theme) => ({
@@ -43,7 +48,12 @@ class MedicalServiceForm extends Component {
   };
 
   newMedicalService() {
-    return { patientCategory: 15 };
+    return {
+      patientCategory: 15,
+      jsonExt: {},
+      level: SERVICE_LEVEL_HOSPITAL_CARE,
+      careType: CARE_TYPE_OUTPATIENT,
+    };
   }
 
   componentDidMount() {
@@ -66,6 +76,7 @@ class MedicalServiceForm extends Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.fetchedMedicalService && !!this.props.fetchedMedicalService) {
       const { medicalService } = this.props;
+      medicalService.jsonExt = !!medicalService.jsonExt ? JSON.parse(medicalService.jsonExt) : {};
       this.setState({
         medicalService,
         medicalServiceId: medicalService.id,
@@ -143,6 +154,7 @@ class MedicalServiceForm extends Component {
     this.state.medicalService.level &&
     this.state.medicalService.price &&
     this.state.medicalService.careType &&
+    this.state.medicalService.jsonExt.spimmCategory &&
     this.props.isServiceValid;
 
   save = (medicalService) => {

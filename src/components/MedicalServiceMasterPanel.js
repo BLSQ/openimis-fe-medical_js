@@ -79,13 +79,23 @@ class MedicalServiceMasterPanel extends FormPanel {
           </Grid>
         </Grid>
         <Grid container className={classes.item}>
-          <Grid item xs={4} className={classes.item}>
+          {/*<Grid item xs={4} className={classes.item}>
             <PublishedComponent
               pubRef="medical.ServiceCategoryPicker"
               withNull={false}
               readOnly={Boolean(edited.id) || readOnly}
               value={edited?.category ? edited.category : " "}
               onChange={(p) => this.updateAttribute("category", p)}
+            />
+          </Grid> */}
+          <Grid item xs={4} className={classes.item}>
+            <PublishedComponent
+              pubRef="medical.ServiceSpimmCategoryPicker"
+              withNull={false}
+              required
+              readOnly={Boolean(edited.id) || readOnly}
+              value={edited?.jsonExt?.spimmCategory ? edited.jsonExt.spimmCategory : " "}
+              onChange={(c) => this.updateExt("spimmCategory", c)}
             />
           </Grid>
           <Grid item xs={4} className={classes.item}>
