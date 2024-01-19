@@ -67,6 +67,16 @@ class MedicalItemMasterPanel extends FormPanel {
               onChange={(name) => this.updateAttributes({ name })}
             />
           </Grid>
+          <Grid item xs={3} className={classes.item}>
+            <TextInput
+              module="admin"
+              label="medical.item.nhiaCode"
+              readOnly={readOnly}
+              inputProps={{ maxLength: ITEM_CODE_MAX_LENGTH }}
+              value={edited && edited.nhiaCode ? edited.nhiaCode : ""}
+              onChange={(nhiaCode) => this.updateAttributes({ nhiaCode })}
+            />
+          </Grid>
           <Grid item xs={2} className={classes.item}>
             <PublishedComponent
               pubRef="medical.ItemTypePicker"

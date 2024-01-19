@@ -89,6 +89,7 @@
   "medical.service.overviewTitle": "Medical Service details",
   "medical.item.overviewTitle": "Medical Item details",
   "medical.item.code": "Code",
+  "medical.item.nhiaCode": "NHIA Code",
   "medical.item.name": "Name",
   "medical.item.type": "Type",
   "medical.item.package": "Package",

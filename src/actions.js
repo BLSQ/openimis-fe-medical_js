@@ -42,6 +42,7 @@ const MEDICAL_SERVICE_FULL_PROJECTION = (mm) => [
 const MEDICAL_ITEM_FULL_PROJECTION = (mm) => [
   "uuid",
   "code",
+  "nhiaCode",
   "name",
   "type",
   "quantity",
@@ -59,6 +60,7 @@ export function formatMedicalItemOrServiceGQL(mm, ms) {
   const req = `
     ${ms.uuid ? `uuid: "${ms.uuid}"` : ""}
     ${ms.code ? `code: "${ms.code}"` : ""}
+    ${ms.nhiaCode ? `nhiaCode: "${ms.nhiaCode}"` : ""}
     ${ms.name ? `name: "${formatGQLString(ms.name)}"` : ""}
     ${ms.type ? `type: "${formatGQLString(ms.type)}"` : ""}
     ${ms.price ? `price: "${ms.price}"` : ""}
